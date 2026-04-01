@@ -7,6 +7,7 @@
       "devDependencies": {
         "@eslint/compat": "^2.0.3",
         "@eslint/js": "^10.0.1",
+        "@iconify-json/mingcute": "^1.2.7",
         "@sveltejs/adapter-vercel": "^6.3.3",
         "@sveltejs/kit": "^2.55.0",
         "@sveltejs/vite-plugin-svelte": "^7.0.0",
@@ -125,6 +126,8 @@
     "@humanwhocodes/module-importer": ["@humanwhocodes/module-importer@1.0.1", "", {}, "sha512-bxveV4V8v5Yb4ncFTT3rPSgZBOpCkjfK0y4oVVVJwIuDVBRMDXrPyXRL988i5ap9m9bnyEEjWfm5WkBmtffLfA=="],
 
     "@humanwhocodes/retry": ["@humanwhocodes/retry@0.4.3", "", {}, "sha512-bV0Tgo9K4hfPCek+aMAn81RppFKv2ySDQeMoSZuvTASywNTnVJCArCZE2FWqpvIatKu7VMRLWlR1EazvVhDyhQ=="],
+
+    "@iconify-json/mingcute": ["@iconify-json/mingcute@1.2.7", "", { "dependencies": { "@iconify/types": "*" } }, "sha512-bp4z6F53KAQp99aSL7qPCHL7HWUNGMNKIhfo/dx9pwVHiad/WusUbTOFXEZfpA44syJPzSOxa3O6Pwiq7qZz1g=="],
 
     "@iconify/types": ["@iconify/types@2.0.0", "", {}, "sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg=="],
 
