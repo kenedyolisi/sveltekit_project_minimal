@@ -13,21 +13,18 @@
 </script>
 
 {#snippet Fallback()}
-  <ChevronLeft class="size-4" />
+  <ChevronLeft class={cn("size-4", className)} />
   <span>Previous</span>
 {/snippet}
-
 <PaginationPrimitive.PrevButton
   bind:ref
   aria-label="Go to previous page"
-  class={cn(
-    buttonVariants({
-      size: "default",
-      variant: "ghost",
-      class: "gap-1 px-2.5 sm:ps-2.5",
-    }),
-    className
-  )}
-  children={children || Fallback}
+  class={cn(buttonVariants({ variant: "ghost" }), "pl-2!", className)}
   {...restProps}
-/>
+>
+  {#if children}
+    {@render children?.()}
+  {:else}
+    {@render Fallback()}
+  {/if}
+</PaginationPrimitive.PrevButton>

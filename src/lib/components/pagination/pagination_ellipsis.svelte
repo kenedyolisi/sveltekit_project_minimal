@@ -17,9 +17,12 @@
   bind:this={ref}
   aria-hidden="true"
   data-slot="pagination-ellipsis"
-  class={cn("flex size-9 items-center justify-center", className)}
+  class={cn(
+    "flex size-9 items-center justify-center [&_svg:not([class*='size-'])]:size-4",
+    className
+  )}
   {...restProps}
 >
-  <Ellipsis class="size-4" />
+  <Ellipsis />
   <span class="sr-only">More pages</span>
 </span>

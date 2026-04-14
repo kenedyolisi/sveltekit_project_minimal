@@ -1,29 +1,20 @@
 <script lang="ts">
-  import { Pagination as PaginationPrimitive } from "bits-ui";
+  import type { ComponentProps } from "svelte";
   import { cn } from "tailwind-variants";
   import ChevronLeft from "virtual:icons/mingcute/left-line";
-  import { buttonVariants } from "../button";
+  import { PaginationLink } from ".";
 
-  let {
-    ref = $bindable(null),
-    class: className,
-    ...restProps
-  }: PaginationPrimitive.PrevButtonProps = $props();
+  type PaginationPreviousProps = ComponentProps<typeof PaginationLink>;
+
+  let { class: className, ...restProps }: PaginationPreviousProps = $props();
 </script>
 
-<PaginationPrimitive.PrevButton
-  bind:ref
+<PaginationLink
   aria-label="Go to previous page"
-  class={cn(
-    buttonVariants({
-      size: "default",
-      variant: "ghost",
-      class: "gap-1 px-2.5 sm:ps-2.5",
-    }),
-    className
-  )}
+  size="default"
+  class={cn("pl-2!", className)}
   {...restProps}
 >
-  <ChevronLeft />
-  <span class="hidden sm:block">Previous</span></PaginationPrimitive.PrevButton
->
+  <ChevronLeft data-icon="inline-start" />
+  <span class="pl-2!-text hidden sm:block">Previous</span>
+</PaginationLink>
