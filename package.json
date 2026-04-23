@@ -15,7 +15,7 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "@eslint/compat": "^2.0.3",
+    "@eslint/compat": "^2.0.5",
     "@eslint/js": "^10.0.1",
     "@iconify-json/mingcute": "^1.2.7",
     "@internationalized/date": "^3.12.0",
