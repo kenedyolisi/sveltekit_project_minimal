@@ -3,7 +3,7 @@
   import { cn } from "tailwind-variants";
   import Layout from "virtual:icons/mingcute/layout-line";
   import { Button } from "../button";
-  import { useSidebar } from "./context.svelte.ts";
+  import { useSidebar } from "./context.svelte.js";
 
   let {
     ref = $bindable(null),
@@ -13,7 +13,6 @@
   }: ComponentProps<typeof Button> & {
     onclick?: (e: MouseEvent) => void;
   } = $props();
-
   const sidebar = useSidebar();
 </script>
 
@@ -23,7 +22,7 @@
   data-slot="sidebar-trigger"
   variant="ghost"
   size="icon"
-  class={cn(className)}
+  class={cn("cn-sidebar-trigger", className)}
   type="button"
   onclick={(event) => {
     onclick?.(event);
@@ -31,6 +30,6 @@
   }}
   {...restProps}
 >
-  <Layout class="size-5" />
+  <Layout />
   <span class="sr-only">Toggle Sidebar</span>
 </Button>

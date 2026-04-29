@@ -8,7 +8,7 @@
     SIDEBAR_WIDTH,
     SIDEBAR_WIDTH_ICON,
   } from "./constants";
-  import { setSidebar } from "./context.svelte.ts";
+  import { setSidebar } from "./context.svelte.js";
 
   let {
     ref = $bindable(null),
@@ -40,7 +40,7 @@
   data-slot="sidebar-wrapper"
   style="--sidebar-width: {SIDEBAR_WIDTH}; --sidebar-width-icon: {SIDEBAR_WIDTH_ICON}; {style}"
   class={cn(
-    "group/sidebar-wrapper has-data-[variant=inset]:bg-sidebar flex min-h-dvh w-full",
+    "group/sidebar-wrapper flex min-h-svh w-full has-data-[variant=inset]:bg-sidebar",
     className
   )}
   bind:this={ref}
