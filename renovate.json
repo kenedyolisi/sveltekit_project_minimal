@@ -1,6 +1,92 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:recommended"
+  "minimumReleaseAge": "1 day",
+  "dependencyDashboard": false,
+  "osvVulnerabilityAlerts": true,
+  "fetchChangeLogs": "pr",
+  "semanticCommits": "enabled",
+  "commitMessageAction": "bump",
+  "commitMessageTopic": "{{depName}}",
+  "commitMessageExtra": "from {{currentVersion}} to {{newVersion}}",
+  "packageRules": [
+    {
+      "matchDepTypes": ["devDependencies"],
+      "semanticCommitScope": "deps-dev"
+    },
+    {
+      "matchDepTypes": ["dependencies"],
+      "semanticCommitScope": "deps"
+    },
+    // Recommended configuration for abandoned packages,
+    // treating packages without a release for 1 year as abandoned,
+    // while taking into account community-sourced overrides
+    {
+      "abandonmentThreshold": "1 year",
+      "matchPackageNames": ["*"]
+    },
+    {
+      "abandonmentThreshold": null,
+      "matchDatasources": ["npm"],
+      "matchPackageNames": ["@types/*"]
+    },
+    {
+      "abandonmentThreshold": "5 years",
+      "matchDatasources": ["npm"],
+      "matchPackageNames": ["eslint-plugin-no-only-tests"]
+    },
+    {
+      "abandonmentThreshold": "6 years",
+      "matchDatasources": ["npm"],
+      "matchPackageNames": ["lodash"]
+    },
+    // Wait until the npm package is three days old before raising the update.
+    // This a) introduces a short delay to allow for malware researchers and
+    // scanners to (possibly) detect any malicious behaviour in packages,
+    // and b) prevents the maintainer and/or NPM from unpublishing a package you already upgraded to, breaking builds.
+    {
+      "internalChecksFilter": "strict",
+      "matchDatasources": ["npm"],
+      "minimumReleaseAge": "3 days"
+    },
+    {
+      "description": "Do not require Minimum Release Age for update types that are controlled by the package manager",
+      "matchDatasources": ["npm"],
+      "matchUpdateTypes": ["lockFileMaintenance"],
+      "minimumReleaseAge": null,
+      "prBodyNotes": [
+        "⚠️ Renovate's lock file maintenance functionality does not support validating Minimum Release Age, as the package manager performs the required changes to update package(s). Confirm whether your package manager perform its own validation for the Minimum Release Age of packages."
+      ]
+    },
+    {
+      "description": "Do not require Minimum Release Age for package replacements",
+      "matchDatasources": ["npm"],
+      "matchUpdateTypes": ["replacement"],
+      "minimumReleaseAge": null,
+      "prBodyNotes": [
+        "⚠️ Renovate's replacement functionality [does not currently](https://github.com/renovatebot/renovate/issues/39400) wire in the release age for a package, so the Minimum Release Age checks can apply. You will need to manually validate the Minimum Release Age for these package(s)."
+      ]
+    },
+    {
+      "description": "Do not require Minimum Release Age for package pinning",
+      "matchDatasources": ["npm"],
+      "matchUpdateTypes": ["pin"],
+      "minimumReleaseAge": null,
+      "prBodyNotes": [
+        "⚠️ Renovate's pin functionality [does not currently](https://github.com/renovatebot/renovate/issues/40288) wire in the release age for a package, so the Minimum Release Age checks can apply. You will need to manually validate the Minimum Release Age for these package(s)."
+      ]
+    }
+  ],
+
+  "customManagers": [
+    {
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/(^|/)(workflow-templates|\\.(?:github|gitea|forgejo)/(?:workflows|actions))/.+\\.ya?ml$/",
+        "/(^|/)action\\.ya?ml$/"
+      ],
+      "matchStrings": [
+        "# renovate: datasource=(?<datasource>[a-zA-Z0-9-._]+?) depName=(?<depName>[^\\s]+?)(?: (?:lookupName|packageName)=(?<packageName>[^\\s]+?))?(?: versioning=(?<versioning>[^\\s]+?))?(?: extractVersion=(?<extractVersion>[^\\s]+?))?(?: registryUrl=(?<registryUrl>[^\\s]+?))?\\s+[A-Za-z0-9_]+?_VERSION\\s*:\\s*[\"']?(?<currentValue>.+?)[\"']?\\s"
+      ]
+    }
   ]
 }
