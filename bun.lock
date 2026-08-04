@@ -7,7 +7,7 @@
       "devDependencies": {
         "@eslint/compat": "^2.1.0",
         "@eslint/js": "^10.0.1",
-        "@iconify-json/mingcute": "^1.2.7",
+        "@iconify-json/mingcute": "^1.2.8",
         "@internationalized/date": "^3.12.0",
         "@sveltejs/adapter-vercel": "^6.3.3",
         "@sveltejs/kit": "^2.70.0",
@@ -129,7 +129,7 @@
 
     "@humanwhocodes/retry": ["@humanwhocodes/retry@0.4.3", "", {}, "sha512-bV0Tgo9K4hfPCek+aMAn81RppFKv2ySDQeMoSZuvTASywNTnVJCArCZE2FWqpvIatKu7VMRLWlR1EazvVhDyhQ=="],
 
-    "@iconify-json/mingcute": ["@iconify-json/mingcute@1.2.7", "", { "dependencies": { "@iconify/types": "*" } }, "sha512-bp4z6F53KAQp99aSL7qPCHL7HWUNGMNKIhfo/dx9pwVHiad/WusUbTOFXEZfpA44syJPzSOxa3O6Pwiq7qZz1g=="],
+    "@iconify-json/mingcute": ["@iconify-json/mingcute@1.2.8", "", { "dependencies": { "@iconify/types": "*" } }, "sha512-J8VXpRwTpx5yzOzyhx3T4IXnfXIKTWFl3rZ9okcW4c+NMMuwkLvdmM4rkjB83tnYIhg5+kkeMpmw8tvSnxd4rQ=="],
 
     "@iconify/types": ["@iconify/types@2.0.0", "", {}, "sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg=="],
 
