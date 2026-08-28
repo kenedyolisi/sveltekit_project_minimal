@@ -23,7 +23,7 @@
     "@sveltejs/kit": "^2.70.0",
     "@sveltejs/vite-plugin-svelte": "^7.3.0",
     "@tailwindcss/vite": "^4.3.0",
-    "@types/node": "^26.2.0",
+    "@types/node": "^26.3.0",
     "bits-ui": "^2.18.0",
     "eslint": "^10.8.0",
     "eslint-config-prettier": "^10.1.8",
